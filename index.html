@@ -13,174 +13,745 @@
             color: #333;
             line-height: 1.6;
         }
-        
+
         .container {
-            max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0;
         }
-        
+
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            height: 60px; /* 设置logo图片高度 */
+            padding: 0px 2%;
             border-bottom: 1px solid #ddd;
+            background-color: white;
         }
-        
+
         .logo {
-            font-size: 24px;
-            font-weight: bold;
+            height: 60px; /* 设置logo图片高度 */
         }
-        
+
         .nav-buttons {
             display: flex;
             gap: 15px;
         }
-        
-        .nav-buttons a {
+
+        .nav-button {
             text-decoration: none;
             color: #333;
             padding: 8px 15px;
             border: 1px solid #ddd;
             border-radius: 4px;
             transition: all 0.3s;
+            cursor: pointer;
+            background: none;
+            font-size: 16px;
         }
-        
-        .nav-buttons a:hover {
-            background-color: #eee;
+
+            .nav-button:hover {
+                background-color: #eee;
+            }
+
+        /* 轮播图样式 */
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
         }
-        
-        .content-section {
-            margin: 40px 0;
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            height: 100%;
+        }
+
+            .carousel-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 10;
+        }
+
+            .carousel-control.prev {
+                left: 20px;
+            }
+
+            .carousel-control.next {
+                right: 20px;
+            }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.5);
+            cursor: pointer;
+        }
+
+            .carousel-indicator.active {
+                background-color: white;
+            }
+
+        /* 下拉菜单样式 */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
             background-color: white;
-            padding: 30px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            min-width: 120px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            top: 100%;
+            left: 0;
         }
-        
-        .section-number {
-            font-size: 32px;
+
+            .dropdown-content a {
+                color: #333;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                border-bottom: 1px solid #eee;
+            }
+
+                .dropdown-content a:last-child {
+                    border-bottom: none;
+                }
+
+                .dropdown-content a:hover {
+                    background-color: #f5f5f5;
+                }
+
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-toggle::after {
+            content: "▼";
+            font-size: 10px;
+            margin-left: 5px;
+        }
+
+        .language-selected {
+            color: #1e88e5;
             font-weight: bold;
-            margin-bottom: 20px;
-            color: #555;
         }
-        
+
+        .content-section {
+            margin: 0;
+            padding: 60px 5%;
+            background-color: white;
+        }
+
         .section-title {
-            font-size: 22px;
-            margin-bottom: 20px;
-            color: #444;
-        }
-        
-        .feature-list {
-            margin-left: 20px;
-        }
-        
-        .feature-list li {
-            margin-bottom: 15px;
-        }
-        
-        .video-container {
-            margin: 40px 0;
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #222;
             text-align: center;
         }
-        
-        .video-placeholder {
-            width: 80%;
-            height: 400px;
-            background-color: #ddd;
+
+        .feature-list {
+            max-width: 800px;
             margin: 0 auto;
+            padding-left: 20px;
+        }
+
+            .feature-list li {
+                margin-bottom: 20px;
+                font-size: 18px;
+            }
+
+        .video-container {
+            padding: 60px 5%;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .video-wrapper {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            background-color: #000;
+        }
+
+        .video-player {
+            width: 100%;
+            display: block;
+        }
+
+        .video-controls-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .video-wrapper:hover .video-controls-container {
+            opacity: 1;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 5px;
+            background-color: #555;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: #1e88e5;
+            width: 0%;
+        }
+
+        .video-controls {
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: #666;
-            font-size: 18px;
+            justify-content: space-between;
         }
-        
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .video-btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .time-display {
+            color: white;
+            font-size: 14px;
+        }
+
+        .volume-container {
+            display: flex;
+            align-items: center;
+            width: 100px;
+        }
+
+        .volume-slider {
+            width: 100%;
+        }
+
         .contact-info {
-            margin-top: 40px;
-            padding: 30px;
+            padding: 60px 5%;
             background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
         }
-        
+
         .qr-codes {
             display: flex;
-            justify-content: space-around;
-            margin-top: 30px;
+            justify-content: center;
+            gap: 80px;
+            margin-top: 40px;
         }
-        
+
         .qr-code {
             text-align: center;
         }
-        
-        .qr-code img {
-            width: 150px;
-            height: 150px;
-            background-color: #eee;
-            margin-bottom: 10px;
+
+            .qr-code img {
+                width: 180px;
+                height: 180px;
+                background-color: #eee;
+                margin-bottom: 15px;
+            }
+
+        /* 英文内容默认隐藏 */
+        .lang-en {
+            display: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="logo">FPMCAE</div>
+            <!-- 替换为logo图片 -->
+            <img src="./images/fpm_main_banner.svg" alt="FPMCAE Logo" class="logo">
             <div class="nav-buttons">
-                <a href="#">下载</a>
-                <a href="#">文档</a>
-                <a href="#">中文</a>
-                <a href="#">使用文档</a>
+                <a href="#" class="nav-button">下载</a>
+                <div class="dropdown">
+                    <button class="nav-button dropdown-toggle">文档</button>
+                    <div class="dropdown-content">
+                        <a href="#">使用文档</a>
+                        <a href="#">快速上手</a>
+                        <a href="#">FPMT文件格式</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="nav-button dropdown-toggle" id="languageToggle">中文</button>
+                    <div class="dropdown-content">
+                        <a href="#" class="language-option language-selected" data-lang="zh">中文</a>
+                        <a href="#" class="language-option" data-lang="en">English</a>
+                    </div>
+                </div>
             </div>
         </header>
-        
-        <div class="content-section">
-            <h2 class="section-title">简介</h2>
-            <p>FPMCAE是由浙江大学罗尧治教授团队自主研发的通用结构复杂行为仿真分析软件。采用有限质点法作为核心算法，集成了前后处理功能和多种求解器引擎，并融入了并行计算技术。</p>
-        </div>
-        
-        <div class="content-section">
-            <h2 class="section-title">功能</h2>
-            <ul class="feature-list">
-                <li><strong>核心算法：</strong>有限质点法，高效进行结构复杂行为的仿真分析。</li>
-                <li><strong>前后处理功能：</strong>强大的数据输入和结果分析工具。</li>
-                <li><strong>多种求解器引擎：</strong>支持多种类型的求解器，满足不同仿真需求。</li>
-                <li><strong>并行计算：</strong>集成技术提升计算效率，适合大规模模拟。</li>
-            </ul>
-        </div>
-        
-        <div class="content-section">
-            <h2 class="section-title">应用领域</h2>
-            <ul class="feature-list">
-                <li>土木交通</li>
-                <li>机械制造</li>
-                <li>航空航天</li>
-                <li>其他需要结构复杂行为仿真分析的领域</li>
-            </ul>
-        </div>
-        
-        <div class="video-container">
-            <h2 class="section-title">FPMCAE视频介绍</h2>
-            <div class="video-placeholder">视频播放区域</div>
-        </div>
-        
-        <div class="contact-info">
-            <h2 class="section-title">联系我们</h2>
-            <p><strong>邮箱：</strong>fpmcae@zju.edu.cn</p>
-            <p><strong>QQ技术：</strong>437808661</p>
-            
-            <div class="qr-codes">
-                <div class="qr-code">
-                    <img alt="二维码1">
-                    <p>扫码关注我们</p>
+
+        <!-- 轮播图 -->
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <img src="./images/banner1.png" alt="FPMCAE展示1">
                 </div>
-                <div class="qr-code">
-                    <img alt="二维码2">
-                    <p>技术交流群</p>
+                <div class="carousel-item">
+                    <img src="./images/banner2.png" alt="FPMCAE展示2">
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/banner3.png" alt="FPMCAE展示3">
+                </div>
+            </div>
+            <button class="carousel-control prev">❮</button>
+            <button class="carousel-control next">❯</button>
+            <div class="carousel-indicators">
+                <div class="carousel-indicator active"></div>
+                <div class="carousel-indicator"></div>
+                <div class="carousel-indicator"></div>
+            </div>
+        </div>
+
+        <!-- 中文内容 -->
+        <div class="lang-zh">
+            <div class="content-section">
+                <h2 class="section-title">简介</h2>
+                <p style="max-width: 800px; margin: 0 auto; font-size: 18px; line-height: 1.8; text-align: center;">FPMCAE是由浙江大学罗尧治教授团队自主研发的通用结构复杂行为仿真分析软件。采用有限质点法作为核心算法，集成了前后处理功能和多种求解器引擎，并融入了并行计算技术。</p>
+            </div>
+
+            <div class="content-section" style="background-color: #f9f9f9;">
+                <h2 class="section-title">功能</h2>
+                <ul class="feature-list">
+                    <li><strong>核心算法：</strong>有限质点法，高效进行结构复杂行为的仿真分析。</li>
+                    <li><strong>前后处理功能：</strong>强大的数据输入和结果分析工具。</li>
+                    <li><strong>多种求解器引擎：</strong>支持多种类型的求解器，满足不同仿真需求。</li>
+                    <li><strong>并行计算：</strong>集成技术提升计算效率，适合大规模模拟。</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">应用领域</h2>
+                <ul class="feature-list">
+                    <li>土木交通</li>
+                    <li>机械制造</li>
+                    <li>航空航天</li>
+                    <li>其他需要结构复杂行为仿真分析的领域</li>
+                </ul>
+            </div>
+
+            <div class="video-container">
+                <h2 class="section-title">FPMCAE视频介绍</h2>
+                <div class="video-wrapper">
+                    <video id="fpmcaeVideo" class="video-player" poster="./images/video-poster.png">
+                        <source src="./videos/fpmcae-intro.mp4" type="video/mp4">
+                        您的浏览器不支持HTML5视频
+                    </video>
+                    <div class="video-controls-container">
+                        <div class="progress-container">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+                        <div class="video-controls">
+                            <div class="control-group">
+                                <button class="video-btn" id="playPauseBtn">▶</button>
+                                <span class="time-display" id="timeDisplay">00:00 / 00:00</span>
+                            </div>
+                            <div class="control-group">
+                                <button class="video-btn" id="muteBtn">🔊</button>
+                                <div class="volume-container">
+                                    <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.1" value="1">
+                                </div>
+                                <button class="video-btn" id="fullscreenBtn">⛶</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <h2 class="section-title">联系我们</h2>
+                <p style="font-size: 18px;"><strong>邮箱：</strong>fpmcae@zju.edu.cn</p>
+                <p style="font-size: 18px;"><strong>QQ技术：</strong>437808661</p>
+
+                <div class="qr-codes">
+                    <div class="qr-code">
+                        <img src="./images/qr-official.svg" alt="二维码1">
+                        <p>扫码关注我们</p>
+                    </div>
+                    <div class="qr-code">
+                        <img src="./images/qr-group.svg" alt="二维码2">
+                        <p>技术交流群</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 英文内容 -->
+        <div class="lang-en">
+            <div class="content-section">
+                <h2 class="section-title">Introduction</h2>
+                <p style="max-width: 800px; margin: 0 auto; font-size: 18px; line-height: 1.8; text-align: center;">FPMCAE is a general-purpose structural complex behavior simulation and analysis software independently developed by Professor Luo Yaozhi's team at Zhejiang University. It adopts the Finite Particle Method as the core algorithm, integrates pre- and post-processing functions and multiple solver engines, and incorporates parallel computing technology.</p>
+            </div>
+
+            <div class="content-section" style="background-color: #f9f9f9;">
+                <h2 class="section-title">Features</h2>
+                <ul class="feature-list">
+                    <li><strong>Core Algorithm:</strong> Finite Particle Method for efficient simulation and analysis of complex structural behaviors.</li>
+                    <li><strong>Pre- and Post-processing:</strong> Powerful data input and result analysis tools.</li>
+                    <li><strong>Multiple Solver Engines:</strong> Supports various types of solvers to meet different simulation needs.</li>
+                    <li><strong>Parallel Computing:</strong> Integrated technology improves computational efficiency, suitable for large-scale simulations.</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">Application Fields</h2>
+                <ul class="feature-list">
+                    <li>Civil and transportation engineering</li>
+                    <li>Mechanical manufacturing</li>
+                    <li>Aerospace</li>
+                    <li>Other fields requiring simulation analysis of complex structural behaviors</li>
+                </ul>
+            </div>
+
+            <div class="video-container">
+                <h2 class="section-title">FPMCAE Video Introduction</h2>
+                <div class="video-wrapper">
+                    <video id="fpmcaeVideoEn" class="video-player" poster="./images/video-poster.png">
+                        <source src="./videos/fpmcae-intro.mp4" type="video/mp4">
+                        Your browser does not support HTML5 video
+                    </video>
+                    <div class="video-controls-container">
+                        <div class="progress-container">
+                            <div class="progress-bar" id="progressBarEn"></div>
+                        </div>
+                        <div class="video-controls">
+                            <div class="control-group">
+                                <button class="video-btn" id="playPauseBtnEn">▶</button>
+                                <span class="time-display" id="timeDisplayEn">00:00 / 00:00</span>
+                            </div>
+                            <div class="control-group">
+                                <button class="video-btn" id="muteBtnEn">🔊</button>
+                                <div class="volume-container">
+                                    <input type="range" id="volumeSliderEn" class="volume-slider" min="0" max="1" step="0.1" value="1">
+                                </div>
+                                <button class="video-btn" id="fullscreenBtnEn">⛶</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <h2 class="section-title">Contact Us</h2>
+                <p style="font-size: 18px;"><strong>Email:</strong> fpmcae@zju.edu.cn</p>
+                <p style="font-size: 18px;"><strong>Technical QQ:</strong> 437808661</p>
+
+                <div class="qr-codes">
+                    <div class="qr-code">
+                        <img src="./images/qr-official.svg" alt="QR Code 1">
+                        <p>Scan to follow us</p>
+                    </div>
+                    <div class="qr-code">
+                        <img src="./images/qr-group.svg" alt="QR Code 2">
+                        <p>Technical discussion group</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        // 轮播图功能
+        const carousel = document.querySelector('.carousel');
+        const carouselInner = carousel.querySelector('.carousel-inner');
+        const carouselItems = carousel.querySelectorAll('.carousel-item');
+        const prevBtn = carousel.querySelector('.prev');
+        const nextBtn = carousel.querySelector('.next');
+        const indicators = carousel.querySelectorAll('.carousel-indicator');
+
+        let currentIndex = 0;
+        const itemCount = carouselItems.length;
+
+        function updateCarousel() {
+            carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            // 更新指示器状态
+            indicators.forEach((indicator, index) => {
+                if (index === currentIndex) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % itemCount;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+            updateCarousel();
+        }
+
+        // 自动轮播
+        let interval = setInterval(nextSlide, 5000);
+
+        // 鼠标悬停时暂停自动轮播
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(interval);
+        });
+
+        // 鼠标离开时恢复自动轮播
+        carousel.addEventListener('mouseleave', () => {
+            interval = setInterval(nextSlide, 5000);
+        });
+
+        // 按钮点击事件
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            clearInterval(interval);
+            interval = setInterval(nextSlide, 5000);
+        });
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            clearInterval(interval);
+            interval = setInterval(nextSlide, 5000);
+        });
+
+        // 指示器点击事件
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+                clearInterval(interval);
+                interval = setInterval(nextSlide, 5000);
+            });
+        });
+
+        // 下拉菜单点击功能
+        document.querySelectorAll('.dropdown-toggle').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                const dropdown = this.closest('.dropdown');
+                dropdown.classList.toggle('active');
+
+                // 点击其他地方关闭菜单
+                document.addEventListener('click', function closeDropdown(e) {
+                    if (!dropdown.contains(e.target)) {
+                        dropdown.classList.remove('active');
+                        document.removeEventListener('click', closeDropdown);
+                    }
+                });
+            });
+        });
+
+        // 语言切换功能
+        document.querySelectorAll('.language-option').forEach(option => {
+            option.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // 更新选中状态
+                document.querySelectorAll('.language-option').forEach(opt => {
+                    opt.classList.remove('language-selected');
+                });
+                this.classList.add('language-selected');
+
+                // 更新按钮文本
+                const languageToggle = document.getElementById('languageToggle');
+                languageToggle.textContent = this.textContent;
+
+                // 切换语言显示
+                const lang = this.getAttribute('data-lang');
+                document.querySelectorAll('.lang-zh, .lang-en').forEach(el => {
+                    el.style.display = 'none';
+                });
+                document.querySelectorAll(`.lang-${lang}`).forEach(el => {
+                    el.style.display = 'block';
+                });
+
+                // 关闭下拉菜单
+                this.closest('.dropdown').classList.remove('active');
+            });
+        });
+
+        // 视频控制功能 (中文)
+        const video = document.getElementById('fpmcaeVideo');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progressContainer = document.querySelector('.progress-container');
+        const timeDisplay = document.getElementById('timeDisplay');
+        const muteBtn = document.getElementById('muteBtn');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+        // 播放/暂停
+        playPauseBtn.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+                playPauseBtn.textContent = '❚❚';
+            } else {
+                video.pause();
+                playPauseBtn.textContent = '▶';
+            }
+        });
+
+        // 更新进度条
+        video.addEventListener('timeupdate', () => {
+            const progress = (video.currentTime / video.duration) * 100;
+            progressBar.style.width = `${progress}%`;
+
+            // 更新时间显示
+            const currentMinutes = Math.floor(video.currentTime / 60);
+            const currentSeconds = Math.floor(video.currentTime % 60);
+            const durationMinutes = Math.floor(video.duration / 60);
+            const durationSeconds = Math.floor(video.duration % 60);
+
+            timeDisplay.textContent =
+                `${currentMinutes.toString().padStart(2, '0')}:${currentSeconds.toString().padStart(2, '0')} /
+                             ${durationMinutes.toString().padStart(2, '0')}:${durationSeconds.toString().padStart(2, '0')}`;
+        });
+
+        // 点击进度条跳转
+        progressContainer.addEventListener('click', (e) => {
+            const rect = progressContainer.getBoundingClientRect();
+            const pos = (e.pageX - rect.left) / progressContainer.offsetWidth;
+            video.currentTime = pos * video.duration;
+        });
+
+        // 静音/取消静音
+        muteBtn.addEventListener('click', () => {
+            video.muted = !video.muted;
+            muteBtn.textContent = video.muted ? '🔇' : '🔊';
+            volumeSlider.value = video.muted ? 0 : video.volume;
+        });
+
+        // 音量控制
+        volumeSlider.addEventListener('input', () => {
+            video.volume = volumeSlider.value;
+            video.muted = volumeSlider.value == 0;
+            muteBtn.textContent = volumeSlider.value == 0 ? '🔇' : '🔊';
+        });
+
+        // 全屏
+        fullscreenBtn.addEventListener('click', () => {
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) {
+                video.msRequestFullscreen();
+            }
+        });
+
+        // 视频控制功能 (英文) - 与中文版类似
+        const videoEn = document.getElementById('fpmcaeVideoEn');
+        const playPauseBtnEn = document.getElementById('playPauseBtnEn');
+        const progressBarEn = document.getElementById('progressBarEn');
+        const progressContainerEn = document.querySelectorAll('.progress-container')[1];
+        const timeDisplayEn = document.getElementById('timeDisplayEn');
+        const muteBtnEn = document.getElementById('muteBtnEn');
+        const volumeSliderEn = document.getElementById('volumeSliderEn');
+        const fullscreenBtnEn = document.getElementById('fullscreenBtnEn');
+
+        playPauseBtnEn.addEventListener('click', () => {
+            if (videoEn.paused) {
+                videoEn.play();
+                playPauseBtnEn.textContent = '❚❚';
+            } else {
+                videoEn.pause();
+                playPauseBtnEn.textContent = '▶';
+            }
+        });
+
+        videoEn.addEventListener('timeupdate', () => {
+            const progress = (videoEn.currentTime / videoEn.duration) * 100;
+            progressBarEn.style.width = `${progress}%`;
+
+            const currentMinutes = Math.floor(videoEn.currentTime / 60);
+            const currentSeconds = Math.floor(videoEn.currentTime % 60);
+            const durationMinutes = Math.floor(videoEn.duration / 60);
+            const durationSeconds = Math.floor(videoEn.duration % 60);
+
+            timeDisplayEn.textContent =
+                `${currentMinutes.toString().padStart(2, '0')}:${currentSeconds.toString().padStart(2, '0')} /
+                             ${durationMinutes.toString().padStart(2, '0')}:${durationSeconds.toString().padStart(2, '0')}`;
+        });
+
+        progressContainerEn.addEventListener('click', (e) => {
+            const rect = progressContainerEn.getBoundingClientRect();
+            const pos = (e.pageX - rect.left) / progressContainerEn.offsetWidth;
+            videoEn.currentTime = pos * videoEn.duration;
+        });
+
+        muteBtnEn.addEventListener('click', () => {
+            videoEn.muted = !videoEn.muted;
+            muteBtnEn.textContent = videoEn.muted ? '🔇' : '🔊';
+            volumeSliderEn.value = videoEn.muted ? 0 : videoEn.volume;
+        });
+
+        volumeSliderEn.addEventListener('input', () => {
+            videoEn.volume = volumeSliderEn.value;
+            videoEn.muted = volumeSliderEn.value == 0;
+            muteBtnEn.textContent = volumeSliderEn.value == 0 ? '🔇' : '🔊';
+        });
+
+        fullscreenBtnEn.addEventListener('click', () => {
+            if (videoEn.requestFullscreen) {
+                videoEn.requestFullscreen();
+            } else if (videoEn.webkitRequestFullscreen) {
+                videoEn.webkitRequestFullscreen();
+            } else if (videoEn.msRequestFullscreen) {
+                videoEn.msRequestFullscreen();
+            }
+        });
+    </script>
 </body>
 </html>
