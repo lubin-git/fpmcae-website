@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPMCAE - 有限质点法结构分析软件</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-buttons a {
+            text-decoration: none;
+            color: #333;
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .nav-buttons a:hover {
+            background-color: #eee;
+        }
+        
+        .content-section {
+            margin: 40px 0;
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .section-number {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #444;
+        }
+        
+        .feature-list {
+            margin-left: 20px;
+        }
+        
+        .feature-list li {
+            margin-bottom: 15px;
+        }
+        
+        .video-container {
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .video-placeholder {
+            width: 80%;
+            height: 400px;
+            background-color: #ddd;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 18px;
+        }
+        
+        .contact-info {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .qr-codes {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        
+        .qr-code {
+            text-align: center;
+        }
+        
+        .qr-code img {
+            width: 150px;
+            height: 150px;
+            background-color: #eee;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">FPMCAE</div>
+            <div class="nav-buttons">
+                <a href="#">下载</a>
+                <a href="#">文档</a>
+                <a href="#">中文</a>
+                <a href="#">使用文档</a>
+            </div>
+        </header>
+        
+        <div class="content-section">
+            <h2 class="section-title">简介</h2>
+            <p>FPMCAE是由浙江大学罗尧治教授团队自主研发的通用结构复杂行为仿真分析软件。采用有限质点法作为核心算法，集成了前后处理功能和多种求解器引擎，并融入了并行计算技术。</p>
+        </div>
+        
+        <div class="content-section">
+            <h2 class="section-title">功能</h2>
+            <ul class="feature-list">
+                <li><strong>核心算法：</strong>有限质点法，高效进行结构复杂行为的仿真分析。</li>
+                <li><strong>前后处理功能：</strong>强大的数据输入和结果分析工具。</li>
+                <li><strong>多种求解器引擎：</strong>支持多种类型的求解器，满足不同仿真需求。</li>
+                <li><strong>并行计算：</strong>集成技术提升计算效率，适合大规模模拟。</li>
+            </ul>
+        </div>
+        
+        <div class="content-section">
+            <h2 class="section-title">应用领域</h2>
+            <ul class="feature-list">
+                <li>土木交通</li>
+                <li>机械制造</li>
+                <li>航空航天</li>
+                <li>其他需要结构复杂行为仿真分析的领域</li>
+            </ul>
+        </div>
+        
+        <div class="video-container">
+            <h2 class="section-title">FPMCAE视频介绍</h2>
+            <div class="video-placeholder">视频播放区域</div>
+        </div>
+        
+        <div class="contact-info">
+            <h2 class="section-title">联系我们</h2>
+            <p><strong>邮箱：</strong>fpmcae@zju.edu.cn</p>
+            <p><strong>QQ技术：</strong>437808661</p>
+            
+            <div class="qr-codes">
+                <div class="qr-code">
+                    <img alt="二维码1">
+                    <p>扫码关注我们</p>
+                </div>
+                <div class="qr-code">
+                    <img alt="二维码2">
+                    <p>技术交流群</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
