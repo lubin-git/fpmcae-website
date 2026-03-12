@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPMCAE - 有限质点法仿真分析软件</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <img src="images/icons/fpm.svg" alt="FPMCAE" class="logo-img">
+                </a>
+                
+                <div class="nav-right">
+                    <a href="https://github.com/FPMManagers/FPMCAE/releases/" class="nav-link" data-i18n="download">下载</a>
+                    
+                    <div class="dropdown">
+                        <button class="nav-link dropdown-toggle" data-i18n="docs">
+                            文档 <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="docs/UsageGuide.pdf" target="_blank" data-i18n="user_manual">使用文档</a>
+                            <a href="docs/QuickStart.pdf" target="_blank" data-i18n="quick_start">快速上手</a>
+                            <a href="docs/FpmtBreif.pdf" target="_blank" data-i18n="fpmt_format">FPMT文件格式</a>
+                        </div>
+                    </div>
+                    
+                    <div class="dropdown">
+                        <button class="nav-link dropdown-toggle" id="lang-toggle">
+                            <i class="fas fa-globe"></i> <span data-i18n="current_lang">中文</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="#" onclick="setLanguage('zh')">中文</a>
+                            <a href="#" onclick="setLanguage('en')">English</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 轮播图 Banner -->
+    <section class="hero-banner">
+        <div class="carousel-container">
+            <div class="carousel-slide banner-image active">
+                <img src="images/banner/banner1.png" alt="FPMCAE Banner 1">
+            </div>
+            <div class="carousel-slide banner-image">
+                <img src="images/banner/banner2.png" alt="FPMCAE Banner 2">
+            </div>
+        </div>
+        <button class="carousel-btn prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-btn next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+        <div class="carousel-dots">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+        </div>
+    </section>
+
+    <!-- 简介模块 -->
+    <section class="section intro-section" id="intro">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="intro_title">简介</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="intro-content">
+                <p class="intro-text" data-i18n="intro_text">
+                    FPMCAE是由浙江大学罗尧治教授团队自主研发的通用结构复杂行为仿真分析软件。采用有限质点法作为核心算法，集成了前后处理功能和多种求解器引擎，并融入了并行计算技术。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 视频介绍模块 - 移到简介后面 -->
+    <section class="section video-section" id="video">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="video_title">FPMCAE视频介绍</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <video controls poster="images/banner/banner1.png" id="main-video">
+                        <source src="videos/fpmcae-intro.mp4" type="video/mp4">
+                        <p data-i18n="video_not_support">您的浏览器不支持视频播放。</p>
+                    </video>
+                    <div class="video-overlay" id="video-overlay">
+                        <button class="play-btn" onclick="playVideo()">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最近消息模块 -->
+    <section class="section news-section" id="news">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="news_title">最近消息</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="news-grid" id="news-grid">
+                <!-- 消息卡片将通过JavaScript动态加载 -->
+            </div>
+            <div class="news-more">
+                <a href="javascript:void(0);" onclick="scrollToBottom()" class="btn btn-primary" data-i18n="view_more">
+                    <i class="fas fa-arrow-down"></i> 查看更多
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 算例库模块 -->
+    <section class="section examples-section" id="examples">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="examples_title">算例库</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="examples-filter">
+                <button class="filter-btn active" data-filter="all" data-i18n="filter_all">全部</button>
+                <button class="filter-btn" data-filter="structure" data-i18n="filter_structure">结构分析</button>
+                <button class="filter-btn" data-filter="multi-scale" data-i18n="filter_multiScale">多尺度分析</button>
+                <button class="filter-btn" data-filter="form-finding" data-i18n="filter_formFinding">找形分析</button>
+                <button class="filter-btn" data-filter="earthquake-simulation" data-i18n="filter_earthquakeSimulation">结构地震模拟</button>
+                <button class="filter-btn" data-filter="nonlinear" data-i18n="filter_nonlinear">非线性分析</button>
+            </div>
+            <div class="examples-grid" id="examples-grid">
+                <!-- 算例卡片将通过JavaScript动态加载 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们模块 -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="contact_title">联系我们</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <span class="label" data-i18n="email_label">邮箱：</span>
+                            <a href="mailto:fpmcae@zju.edu.cn">fpmcae@zju.edu.cn</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-qq"></i>
+                        <div>
+                            <span class="label" data-i18n="qq_label">QQ技术群：</span>
+                            <span>437808661</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="qr-codes">
+                    <div class="qr-item">
+                        <div class="qr-placeholder">
+                            <img src="images/qrcodes/qr-official.svg" alt="微信公众号">
+                        </div>
+                        <p data-i18n="qr_wechat">扫码关注我们</p>
+                    </div>
+                    <div class="qr-item">
+                        <div class="qr-placeholder">
+                            <img src="images/qrcodes/qr-group.svg" alt="QQ技术群">
+                        </div>
+                        <p data-i18n="qr_qq">技术交流群</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">FPM<span class="highlight">CAE</span></span>
+                    <p data-i18n="footer_desc">浙江大学自主研发的通用结构复杂行为仿真分析软件</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#intro" data-i18n="nav_intro">简介</a>
+                    <a href="#examples" data-i18n="nav_examples">算例库</a>
+                    <a href="#contact" data-i18n="nav_contact">联系我们</a>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 FPMCAE. <span data-i18n="copyright">版权所有</span></p>
+                    <p data-i18n="footer_org">浙江大学 · 浙江大学长三角智慧绿洲创新中心</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
