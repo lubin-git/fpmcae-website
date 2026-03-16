@@ -45,48 +45,45 @@
         </div>
     </header>
 
-    <!-- 下载区域 -->
-    <section class="download-section" id="download">
+    <!-- Hero Banner - 下载与展示整合 -->
+    <section class="hero-banner" id="hero">
+        <div class="hero-bg-pattern"></div>
         <div class="container">
-            <div class="download-content">
-                <div class="download-badge">
-                    <span data-i18n="download_badge">FPMCAE v2.0 正式上线</span>
+            <div class="hero-wrapper">
+                <!-- 左侧内容区 -->
+                <div class="hero-content">
+                    <h1 class="hero-title" data-i18n="download_title">FPMCAE，<br>面向工程结构的<br>通用仿真分析平台</h1>
+                    <div class="hero-actions">
+                        <a href="https://github.com/FPMManagers/FPMCAE/releases/tag/V2.0.3.89" class="btn btn-primary-download" target="_blank">
+                            <i class="fas fa-download"></i>
+                            <span data-i18n="download_now">立即下载</span>
+                        </a>
+                        <a href="https://github.com/FPMManagers/FPMCAE/releases/" class="btn btn-all-downloads" target="_blank">
+                            <span data-i18n="all_downloads">所有下载</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
-                <h1 class="download-title" data-i18n="download_title">FPMCAE，面向工程结构的<br>通用仿真分析平台</h1>
-                <div class="download-actions">
-                    <a href="https://github.com/FPMManagers/FPMCAE/releases/" class="btn btn-download" target="_blank">
-                        <i class="fas fa-download"></i>
-                        <span data-i18n="download_now">立即下载</span>
-                    </a>
-                    <a href="https://github.com/FPMManagers/FPMCAE/releases/" class="btn btn-download-all" target="_blank">
-                        <span data-i18n="all_downloads">所有下载</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
+                <!-- 右侧展示卡片区 -->
+                <div class="hero-showcase">
+                    <div class="showcase-frame">
+                        <div class="carousel-container">
+                            <div class="carousel-slide banner-image active">
+                                <img src="images/banner/banner1.png" alt="FPMCAE Banner 1">
+                            </div>
+                            <div class="carousel-slide banner-image">
+                                <img src="images/banner/banner2.png" alt="FPMCAE Banner 2">
+                            </div>
+                        </div>
+                        <button class="carousel-btn prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-btn next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+                        <div class="carousel-dots">
+                            <span class="dot active" onclick="goToSlide(0)"></span>
+                            <span class="dot" onclick="goToSlide(1)"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="download-showcase">
-                <div class="showcase-card">
-                    <img src="images/banner/banner1.png" alt="FPMCAE Interface">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 轮播图 Banner -->
-    <section class="hero-banner">
-        <div class="carousel-container">
-            <div class="carousel-slide banner-image active">
-                <img src="images/banner/banner1.png" alt="FPMCAE Banner 1">
-            </div>
-            <div class="carousel-slide banner-image">
-                <img src="images/banner/banner2.png" alt="FPMCAE Banner 2">
-            </div>
-        </div>
-        <button class="carousel-btn prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
-        <button class="carousel-btn next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
-        <div class="carousel-dots">
-            <span class="dot active" onclick="goToSlide(0)"></span>
-            <span class="dot" onclick="goToSlide(1)"></span>
         </div>
     </section>
 

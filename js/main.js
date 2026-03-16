@@ -26,7 +26,6 @@ const translations = {
         fpmt_format: 'FPMT文件格式',
         
         // Download Section
-        download_badge: 'FPMCAE v2.0 正式上线',
         download_title: 'FPMCAE，面向工程结构的\n通用仿真分析平台',
         download_now: '立即下载',
         all_downloads: '所有下载',
@@ -82,7 +81,6 @@ const translations = {
         fpmt_format: 'FPMT File Format',
         
         // Download Section
-        download_badge: 'FPMCAE v2.0 Released',
         download_title: 'FPMCAE, A General Simulation\nPlatform for Engineering Structures',
         download_now: 'Download Now',
         all_downloads: 'All Downloads',
@@ -463,21 +461,17 @@ function renderExamples(filter) {
             <div class="example-header">
                 <span class="example-category">${getCategoryName(ex.category)}</span>
                 <h3 class="example-title">${currentLang === 'zh' ? ex.title : ex.titleEn}</h3>
-                <p class="example-desc">${currentLang === 'zh' ? ex.desc : ex.descEn}</p>
             </div>
             <div class="example-body">
                 <div class="example-meta">
-                    <span><i class="fas fa-file-archive"></i> ${ex.fileSize}</span>
-                    <span><i class="fas fa-calendar"></i> ${ex.updateTime}</span>
+                    <div class="meta-left">
+                        <span><i class="fas fa-file-archive"></i> ${ex.fileSize}</span>
+                        <span><i class="fas fa-calendar"></i> ${ex.updateTime}</span>
+                    </div>
+                    <button class="btn-download-meta" onclick="downloadExample('${ex.fileUrl}', ${ex.id})" title="${t.download_example}">
+                        <i class="fas fa-download"></i>
+                    </button>
                 </div>
-            </div>
-            <div class="example-actions">
-                <button class="btn btn-secondary" onclick="viewExampleDetail(${ex.id})">
-                    <i class="fas fa-eye"></i> ${t.view_detail}
-                </button>
-                <button class="btn btn-primary" onclick="downloadExample('${ex.fileUrl}', ${ex.id})">
-                    <i class="fas fa-download"></i> ${t.download_example}
-                </button>
             </div>
         </div>
     `).join('');
