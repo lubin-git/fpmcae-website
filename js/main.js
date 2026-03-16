@@ -25,6 +25,12 @@ const translations = {
         quick_start: '快速上手',
         fpmt_format: 'FPMT文件格式',
         
+        // Download Section
+        download_badge: 'FPMCAE v2.0 正式上线',
+        download_title: 'FPMCAE，面向工程结构的\n通用仿真分析平台',
+        download_now: '立即下载',
+        all_downloads: '所有下载',
+        
         // Intro
         intro_title: '简介',
         intro_text: 'FPMCAE是由浙江大学罗尧治教授团队自主研发的通用结构复杂行为仿真分析软件。采用有限质点法作为核心算法，集成了前后处理功能和多种求解器引擎，并融入了并行计算技术。',
@@ -74,6 +80,12 @@ const translations = {
         user_manual: 'User Manual',
         quick_start: 'Quick Start',
         fpmt_format: 'FPMT File Format',
+        
+        // Download Section
+        download_badge: 'FPMCAE v2.0 Released',
+        download_title: 'FPMCAE, A General Simulation\nPlatform for Engineering Structures',
+        download_now: 'Download Now',
+        all_downloads: 'All Downloads',
         
         // Intro
         intro_title: 'Introduction',
@@ -445,6 +457,9 @@ function renderExamples(filter) {
     
     container.innerHTML = filtered.map(ex => `
         <div class="example-card" data-category="${ex.category}">
+            <div class="example-image">
+                <img src="${ex.previewImage || 'images/banner/banner1.png'}" alt="${currentLang === 'zh' ? ex.title : ex.titleEn}" class="example-img">
+            </div>
             <div class="example-header">
                 <span class="example-category">${getCategoryName(ex.category)}</span>
                 <h3 class="example-title">${currentLang === 'zh' ? ex.title : ex.titleEn}</h3>

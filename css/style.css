@@ -183,6 +183,193 @@ img {
 }
 
 /* ============================================
+   Download Section
+   ============================================ */
+
+.download-section {
+    position: relative;
+    min-height: 600px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    margin-top: 70px;
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+.download-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at top right, rgba(12, 142, 161, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.download-section .container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.download-content {
+    flex: 1;
+    max-width: 500px;
+}
+
+.download-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    margin-bottom: 24px;
+}
+
+.download-badge span {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.download-title {
+    color: white;
+    font-size: 2.8rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 32px;
+    letter-spacing: -0.5px;
+}
+
+.download-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(45, 212, 191, 0.4);
+}
+
+.btn-download:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(45, 212, 191, 0.5);
+    background: linear-gradient(135deg, #5eead4 0%, #2dd4bf 100%);
+}
+
+.btn-download i {
+    font-size: 1.1rem;
+}
+
+.btn-download-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-download-all:hover {
+    color: white;
+    gap: 12px;
+}
+
+.btn-download-all i {
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.download-showcase {
+    flex: 1;
+    max-width: 600px;
+}
+
+.showcase-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.showcase-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+}
+
+@media (max-width: 992px) {
+    .download-section {
+        min-height: auto;
+        padding: 60px 0;
+    }
+    
+    .download-section .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .download-content {
+        max-width: 100%;
+    }
+    
+    .download-title {
+        font-size: 2.2rem;
+    }
+    
+    .download-actions {
+        justify-content: center;
+    }
+    
+    .download-showcase {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .showcase-card {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .download-title {
+        font-size: 1.8rem;
+    }
+    
+    .btn-download,
+    .btn-download-all {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ============================================
    Hero Banner & Carousel - Reduced Height
    ============================================ */
 
@@ -190,7 +377,6 @@ img {
     position: relative;
     height: 600px;
     overflow: hidden;
-    margin-top: 70px;
     background: var(--bg-light);
 }
 
@@ -374,7 +560,7 @@ img {
 }
 
 .video-container {
-    max-width: 800px;
+    max-width: 960px;
     margin: 0 auto;
 }
 
@@ -570,6 +756,26 @@ img {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
     border-color: var(--accent-color);
+}
+
+.example-image {
+    height: 160px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.example-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.example-card:hover .example-image img {
+    transform: scale(1.05);
 }
 
 .example-header {
