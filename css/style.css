@@ -1207,8 +1207,10 @@ img {
     }
     
     .hero-banner {
-        height: 420px;
+        min-height: 420px;
+        height: auto;
         margin-top: 60px;
+        padding-bottom: 40px;
     }
     
     .logo {
@@ -1280,7 +1282,9 @@ img {
     }
     
     .hero-banner {
-        height: 340px;
+        min-height: 340px;
+        height: auto;
+        padding-bottom: 30px;
     }
     
     .main-logo {
