@@ -26,7 +26,7 @@ const translations = {
         fpmt_format: 'FPMT文件格式',
         
         // Download Section
-        download_title: 'FPMCAE，面向工程结构的\n通用仿真分析平台',
+        download_title: 'FPMCAE，面向工程结构的\n通用复杂行为分析平台',
         download_now: '立即下载',
         all_downloads: '所有下载',
         
@@ -81,7 +81,7 @@ const translations = {
         fpmt_format: 'FPMT File Format',
         
         // Download Section
-        download_title: 'FPMCAE, A General Simulation\nPlatform for Engineering Structures',
+        download_title: 'FPMCAE, A General Complex Behavior\nAnalysis Platform for Engineering Structures',
         download_now: 'Download Now',
         all_downloads: 'All Downloads',
         
